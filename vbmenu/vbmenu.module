@@ -13,3 +13,13 @@ function vbmenu_menu() {
   return $items;
 }
 
+/**
+ * page callback voor vbmenu
+ * 
+ * @return render array() 
+ */
+function vb_menu_menu1() {
+  $output = array();
+  $output['#markup'] = t('Dit is het eerste voorbeeld');
+  return $output;
+}
