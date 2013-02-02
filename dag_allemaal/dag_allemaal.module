@@ -1,0 +1,23 @@
+<?php
+/**
+ * Implements hook_menu();
+ */
+function dag_allemaal_menu() {
+  $items['dag_allemaal'] = array(
+    'title' => 'Begroeting',
+    'access arguments' => array('access content'),
+    'page callback' => 'dag_allemaal_begroeting',
+  );
+  return $items;
+}
+
+/**
+ * Page callback voor dag_allemaal menu
+ */
+function dag_allemaal_begroeting() {
+  $render = array(
+    '#markup' => t('Dag allemaal'),
+  );
+  return $render;
+}
+

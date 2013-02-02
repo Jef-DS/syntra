@@ -1,0 +1,9 @@
+name = Dag Allemaal
+description = Een module om Drupal te laten groeten
+core = 7.x
+package = Beta modules
+php = 5.3
+version = 1.0-dev
+;dependencies[] = 
+;files[] = 
+;configure = 
