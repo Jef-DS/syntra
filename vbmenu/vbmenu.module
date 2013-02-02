@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * Implements hook_menu();
+ */
+function vbmenu_menu() {
+  $items = array();
+  $items['vbmenu'] = array(
+    'title' => 'Voorbeeld menu',
+    'access arguments' => array('access content'),
+    'page callback' => 'vb_menu_menu1',
+  );
+  return $items;
+}
+
