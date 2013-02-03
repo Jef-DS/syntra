@@ -37,7 +37,7 @@ function vb_menu_menu1() {
  */
 function vb_menu_menu2($wildcard) {
   $output = array();
-  $output['#markup'] = t('De wildcard is @wildcard', 
-          array('@wildcard' => $wildcard));
+  $output['#markup'] = t('De wildcard is %wildcard', 
+          array('%wildcard' => $wildcard));
   return $output;
 }
