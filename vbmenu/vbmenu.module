@@ -17,7 +17,7 @@ function vbmenu_menu() {
     'page callback' => 'vb_menu_menu2',
     'file' => 'vbmenu.callback.inc', //file met callback
   );
-  $items['user/%/beoordeling'] = array(
+  $items['user/%user/beoordeling'] = array(
     'title' => 'Beoordeling',
     'access arguments' => array('administer users'),
     'page arguments' => array(1),
