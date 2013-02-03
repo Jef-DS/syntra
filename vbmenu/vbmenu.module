@@ -10,16 +10,34 @@ function vbmenu_menu() {
     'access arguments' => array('access content'),
     'page callback' => 'vb_menu_menu1',
   );
+  $items['vbmenu/%'] =array(
+    'title' => 'Voorbeeld van wildcard',
+    'access arguments' => array('access content'),
+    'page arguments' => array(1), //0=vbmenu, 1=%
+    'page callback' => 'vb_menu_menu2',
+  );
   return $items;
 }
 
 /**
  * page callback voor vbmenu
  * 
- * @return render array() 
+ * @return array render array
  */
 function vb_menu_menu1() {
   $output = array();
   $output['#markup'] = t('Dit is het eerste voorbeeld');
+  return $output;
+}
+
+/**
+ * page call back voor vbmenu/%
+ * @param undef $wildcard De waarde van %
+ * @return array render array
+ */
+function vb_menu_menu2($wildcard) {
+  $output = array();
+  $output['#markup'] = t('De wildcard is @wildcard', 
+          array('@wildcard' => $wildcard));
   return $output;
 }
