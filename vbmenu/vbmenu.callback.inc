@@ -12,7 +12,7 @@ function vb_menu_menu2($wildcard) {
 }
 
 /**
- * page callback voor user/%/beoordeling
+ * page callback voor user/%user/beoordeling
  * @param object $account Het user object
  * @return array render array
  */
@@ -20,4 +20,16 @@ function vb_menu_menu3($account) {
   $output['#markup'] = t('Gebruiker %username is fantastisch', 
           array('%username' => $account->name));
   return $output;  
+}
+
+/**
+ * page callback voor node/%node/vbmenu
+ * @param object $node Het node object
+ * @return array  render array
+ */
+function vb_menu_menu4($node) {
+  $body_list = field_get_items('node', $node, 'body');
+  $body = $body_list[0]['value'];
+  $output['#markup'] = t('De body is @body', array('@body' => $body));
+  return $output;
 }

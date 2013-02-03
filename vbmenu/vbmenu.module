@@ -25,6 +25,15 @@ function vbmenu_menu() {
     'file' => 'vbmenu.callback.inc',
     'type' => MENU_LOCAL_TASK, // verschijnt als tab
   );
+  $items['node/%node/vbmenu'] = array(
+    'title' => 'Voorbeeld menu',
+    'access arguments' => array('access content'),
+    'page arguments' => array(1),
+    'page callback' => 'vb_menu_menu4',
+    'file' => 'vbmenu.callback.inc',
+    'type' => MENU_LOCAL_TASK,
+    'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
+  );
   return $items;
 }
 
