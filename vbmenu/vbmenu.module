@@ -10,12 +10,20 @@ function vbmenu_menu() {
     'access arguments' => array('access content'),
     'page callback' => 'vb_menu_menu1',
   );
-  $items['vbmenu/%'] =array(
+  $items['vbmenu/%'] = array(
     'title' => 'Voorbeeld van wildcard',
     'access arguments' => array('access content'),
     'page arguments' => array(1), //0=vbmenu, 1=%
     'page callback' => 'vb_menu_menu2',
-    'file' => 'vbmenu.callback.inc' //file met callback
+    'file' => 'vbmenu.callback.inc', //file met callback
+  );
+  $items['user/%/beoordeling'] = array(
+    'title' => 'Beoordeling',
+    'access arguments' => array('administer users'),
+    'page arguments' => array(1),
+    'page callback' => 'vb_menu_menu3',
+    'file' => 'vbmenu.callback.inc',
+    'type' => MENU_LOCAL_TASK, // verschijnt als tab
   );
   return $items;
 }
