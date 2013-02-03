@@ -15,6 +15,7 @@ function vbmenu_menu() {
     'access arguments' => array('access content'),
     'page arguments' => array(1), //0=vbmenu, 1=%
     'page callback' => 'vb_menu_menu2',
+    'file' => 'vbmenu.callback.inc' //file met callback
   );
   return $items;
 }
@@ -30,14 +31,3 @@ function vb_menu_menu1() {
   return $output;
 }
 
-/**
- * page call back voor vbmenu/%
- * @param undef $wildcard De waarde van %
- * @return array render array
- */
-function vb_menu_menu2($wildcard) {
-  $output = array();
-  $output['#markup'] = t('De wildcard is %wildcard', 
-          array('%wildcard' => $wildcard));
-  return $output;
-}
