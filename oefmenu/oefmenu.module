@@ -19,6 +19,8 @@ function oefmenu_menu() {
   );
   $items['user/%user/oefmenu'] = array(
     'title' => 'Ga naar website',
+    'title callback' => 'oefmenu_user_website_title',
+    'title arguments' => array(1),
     'access callback' => 'oefmenu_can_show_website',
     'access arguments' => array(1),
     'type' => MENU_LOCAL_TASK,
@@ -27,6 +29,11 @@ function oefmenu_menu() {
     'file' => 'oefmenu.callback.inc',
   );
   return $items;
+}
+
+function oefmenu_user_website_title($account) {
+  $naam = $account->name;
+  return t('Website van @naam', array('@naam' => $naam));
 }
 
 function oefmenu_can_show_website($account) {
