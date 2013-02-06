@@ -1,0 +1,48 @@
+<?php
+/**
+* Implements hook_menu();
+*/
+function oefmenu_menu() {
+  $items['oefmenu'] = array(
+    'title' => 'Een nieuw menu',
+    'access arguments' => array('access content'),
+    'page callback' => 'oefmenu_menu1',
+    'file' => 'oefmenu.callback.inc',
+    'menu_name' => 'main-menu',
+  );
+  $items['oefmenu/%/%'] = array(
+    'title' => 'Begroeting',
+    'access arguments' => array('leeftijd_begroeten'),
+    'page callback' => 'oefmenu_menu2',
+    'page arguments' => array(1, 2),
+    'file' => 'oefmenu.callback.inc',
+  );
+  $items['user/%user/oefmenu'] = array(
+    'title' => 'Ga naar website',
+    'access callback' => 'oefmenu_can_show_website',
+    'access arguments' => array(1),
+    'type' => MENU_LOCAL_TASK,
+    'page arguments' => array(1),
+    'page callback' => 'oefmenu_menu3',
+    'file' => 'oefmenu.callback.inc',
+  );
+  return $items;
+}
+
+function oefmenu_can_show_website($account) {
+  $website_array = field_get_items('user', $account, 'field_website');
+  $website = $website_array[0]['value'];
+  return !empty ($website);
+}
+/**
+ * Implements hook_permission();
+ */
+function oefmenu_permission() {
+  $permissions = array();
+  $permissions['leeftijd_begroeten'] = array(
+    'title' => t('Met leeftijd begroeten'),
+  );
+  return $permissions;
+}
+
+

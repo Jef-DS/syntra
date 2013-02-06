@@ -1,0 +1,5 @@
+name = oefmenu
+description = Een module om menu's in te oefenen
+core = 7.x
+package = beta modules
+version = 1.0-dev
